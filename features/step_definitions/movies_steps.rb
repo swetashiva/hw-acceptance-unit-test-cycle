@@ -23,3 +23,11 @@ Then /I should see all the movies/ do
     step %{I should see "#{movie.title}"}
   end
 end
+
+# added steps to match expected value to actual field value of any parent attribute
+Then /the (.*) of "(.*)" should be "(.*)"$/ do |field, parent, value|
+ expect(Movie.find_by_title("#{parent}")[:"#{field}"]).to eq "#{value}"  
+end
+
+
+

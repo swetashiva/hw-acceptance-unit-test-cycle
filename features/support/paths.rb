@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
-    when /^the edit page for (.*)$/ then Movie.find_by(id:$1)
+    when /^the edit page for "(.*)"$/ then "/movies/#{Movie.find_by_title($1)[:id]}/edit"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

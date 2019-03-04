@@ -4,7 +4,8 @@ class Movie < ActiveRecord::Base
   end
   
   def self.movies_by_same_director movie_title
-    director = Movie.find_by(title: movie_title).director
+    movie = Movie.find_by(title: movie_title)
+    director = movie.director
     return nil if director.nil?
     Movie.where(director: director).pluck(:title)
   end

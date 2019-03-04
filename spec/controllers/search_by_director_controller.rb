@@ -1,4 +1,5 @@
-describe Movie do
+require 'rails_helper'
+describe MoviesController do
 describe 'Search movies by the same director' do
      it 'should call Movie.movies_by_same_director' do
       expect(Movie).to receive(:movies_by_same_director).with('Aladdin')
@@ -15,5 +16,8 @@ describe 'Search movies by the same director' do
       get :search, { title: 'No name' }
       expect(response).to redirect_to(root_url) 
     end
+    
+    #to create new movies in db
+    # post :movies, {}
   end
 end

@@ -105,13 +105,13 @@
       "/home/ec2-user/environment/csce_ws_3/hw-acceptance-unit-test-cycle/rottenpotatoes/app/helpers/movies_helper.rb": [
         1,
         null,
-        null,
-        null,
+        1,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1551700181
+    "timestamp": 1552002199
   },
   "RSpec": {
     "coverage": {
@@ -219,12 +219,12 @@
       "/home/ec2-user/environment/csce_ws_3/hw-acceptance-unit-test-cycle/rottenpotatoes/app/helpers/movies_helper.rb": [
         0,
         null,
-        null,
-        null,
-        null,
+        0,
+        0,
+        0,
         0
       ]
     },
-    "timestamp": 1551700174
+    "timestamp": 1552002218
   }
 }

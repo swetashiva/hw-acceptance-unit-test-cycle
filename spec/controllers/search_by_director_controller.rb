@@ -12,13 +12,13 @@ describe 'Search movies by the same director' do
       get :search, { title: 'My Dear Kuttichathan' }
       expect(assigns(:movies_by_same_director)).to eql(['Pavithram', 'My Dear Kuttichathan'])
     end
-     it "should redirect to home page if director isn't known" do
+     it "should redirect to home page if no director info" do
       Movie.stub(:movies_by_same_director).with('ZNMD').and_return(nil)
       get :search, { title: 'ZNMD' }
       expect(response).to redirect_to(movies_path) 
     end
     
- #to create new movies in db and search for directors without stubs
+ #to create new movies in db and search for directors without stubs : checks model 
     it "should create new movies in db, search for movies with same director, check nil/blank movie director scenario, delete a movie, check the search for movies with same director " do
 
         #create new movies
@@ -33,7 +33,11 @@ describe 'Search movies by the same director' do
         
         #search for movies with same director
         expect(Movie.movies_by_same_director("Pavithram")).to eql(['Pavithram','My Dear Kuttichathan'])
+        
+        #movie with different director does not appear in teh search
         expect(Movie.movies_by_same_director("Pavithram")).to_not include(['Seetharamaiyah Gari Manavaralu'])
+        
+        #blank director field results in nil being returned in model class Movie
         expect(Movie.movies_by_same_director("Seetharamaiyah Gari Manavaralu")).to eql(nil)
         
         #delete a movie
